@@ -38,5 +38,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableData.count
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)  // remove the highlight from the selected row
+        let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
+        showDialog(text: (currentCell.textLabel?.text)!)
+    }
+    
+    func showDialog(text : String) {
+        let alert = UIAlertController(title: "Alert", message: text, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Click", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
