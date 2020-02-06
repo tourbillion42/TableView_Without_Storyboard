@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tableView : UITableView!
-    var tablData = ["intuitive","correspond","dedicate","delicate","intrinsic"]
+    var tableData = ["intuitive","correspond","dedicate","delicate","intrinsic"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +30,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myTable", for: indexPath)
         
-        cell.textLabel?.text = "\(tablData[indexPath.row])"
+        cell.textLabel?.text = "\(tableData[indexPath.row])"
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tablData.count
+        return tableData.count
     }
 }
 
